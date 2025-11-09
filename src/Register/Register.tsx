@@ -4,7 +4,7 @@ import style from '@/Register/Register.module.css'
 
 export const Register = () => {
 
-    const [data, setData]= useState({})
+    const [data, setData]= useState<Record<string, string>>({})
 
     const handleChange=(event:any)=>{
          const {name,value}=event.target;
@@ -22,9 +22,13 @@ export const Register = () => {
         })
         const result = await res.json()
         console.log(result)
-     } catch (error:any) {
-        console.log(error.msg)
-       }
+     }  catch (err) {
+  if (err instanceof Error) {
+    console.error("Error:", err.message);
+  } else {
+    console.error("Unknown error:", err);
+  }
+}
     }
       return (
     <div className={style.maincontainer}>
