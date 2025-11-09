@@ -15,13 +15,18 @@ export const Register = () => {
         const dataObj = {
             'data': data
         }
-        const res = await fetch("https://my-server-4kvq.vercel.app//std/student",{
+        const res = await fetch("https://my-server-4kvq.vercel.app/std/student",{
             method:'post',
             headers:{'content-type':'application/json'},
             body:JSON.stringify(dataObj)
         })
         const result = await res.json()
-        console.log(result)
+        const {acknowledged,insertedId}=result
+        if(acknowledged && insertedId){
+            alert('sucess')
+        } else{
+            alert('fails')
+        }
      }  catch (err) {
   if (err instanceof Error) {
     console.error("Error:", err.message);
