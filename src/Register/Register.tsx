@@ -6,10 +6,10 @@ export const Register = () => {
 
     const [data, setData]= useState<Record<string, string>>({})
 
-    const handleChange=(event:any)=>{
+    const handleChange=(event:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
          const {name,value}=event.target;
-         setData({...data, [name]:value})
-    }
+         setData((pre)=>({...pre, [name]:value}));
+    };
     const fnClick= async ()=>{
         try{
         const dataObj = {
