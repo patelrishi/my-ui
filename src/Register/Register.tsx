@@ -6,13 +6,13 @@ export const Register = () => {
 
     const [data, setData]= useState({})
 
-    const handleChange=(eve:any)=>{
+    const handleChange=(eve:React.ChangeEvent<HTMLInputElement>)=>{
          const {name,value}=eve.target;
          setData({...data, [name]:value})
     }
     const fnClick= async ()=>{
         try{
-        let dataObj = {
+        const dataObj = {
             'data': data
         }
         const res = await fetch("http://localhost:3030/std/student",{
