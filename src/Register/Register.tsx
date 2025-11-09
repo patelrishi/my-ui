@@ -6,8 +6,8 @@ export const Register = () => {
 
     const [data, setData]= useState({})
 
-    const handleChange=(eve:React.ChangeEvent<HTMLInputElement>)=>{
-         const {name,value}=eve.target;
+    const handleChange=(event:any)=>{
+         const {name,value}=event.target;
          setData({...data, [name]:value})
     }
     const fnClick= async ()=>{
@@ -22,14 +22,9 @@ export const Register = () => {
         })
         const result = await res.json()
         console.log(result)
-     } catch (err) {
-  if (err instanceof Error) {
-    console.error("Error:", err.message);
-  } else {
-    console.error("Unknown error", err);
-  }
-}
-
+     } catch (error:any) {
+        console.log(error.msg)
+       }
     }
       return (
     <div className={style.maincontainer}>
