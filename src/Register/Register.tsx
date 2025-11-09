@@ -12,7 +12,7 @@ export const Register = () => {
     }
     const fnClick= async ()=>{
         try{
-        var dataObj = {
+        let dataObj = {
             'data': data
         }
         const res = await fetch("http://localhost:3030/std/student",{
@@ -22,7 +22,7 @@ export const Register = () => {
         })
         const result = await res.json()
         console.log(result)
-     } catch(err){
+     } catch(err:any){
         console.error(err)
      }
     }
