@@ -15,7 +15,7 @@ export const Register = () => {
         const dataObj = {
             'data': data
         }
-        const res = await fetch("http://localhost:3030/std/student",{
+        const res = await fetch("https://my-server-4kvq.vercel.app//std/student",{
             method:'post',
             headers:{'content-type':'application/json'},
             body:JSON.stringify(dataObj)
