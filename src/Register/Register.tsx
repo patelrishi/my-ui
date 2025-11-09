@@ -22,9 +22,14 @@ export const Register = () => {
         })
         const result = await res.json()
         console.log(result)
-     } catch(err:any){
-        console.error(err)
-     }
+     } catch (err) {
+  if (err instanceof Error) {
+    console.error("Error:", err.message);
+  } else {
+    console.error("Unknown error", err);
+  }
+}
+
     }
       return (
     <div className={style.maincontainer}>
